@@ -1,3 +1,10 @@
+:root{
+    --glassBorder:rgba(65, 64, 64, 0.164);
+    
+}
+*{
+    box-sizing: border-box;
+}
 #exercisesAside{
     background-image: linear-gradient(60deg,rgba(0, 0, 0, 0.247),black,rgba(0, 0, 0, 0.185));
     backdrop-filter: blur(10px);
@@ -7,5 +14,84 @@
 #exercisesMain{
     background-image: linear-gradient(60deg,rgba(0, 0, 0, 0.247),black,rgba(0, 0, 0, 0.185));
     backdrop-filter: blur(10px);
-    background-attachment: fixed
+    background-attachment: fixed;
+    
+    
 }
+#exersices__Background{
+    border-radius: 20px ;
+     border: 1px solid var(--glassBorder);
+     padding-inline: 10px;
+}
+
+
+
+
+h1 {
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(135deg, #1f1c2c, #928DAB, #ffe600);
+   background-clip: text;
+}
+
+#exercise {
+    /* background-color: #f9f9f9; */
+    background-color: #45457085;
+    color: rgb(170, 167, 167);
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 5px solid #ffe600;
+    border-radius: 5px;
+}
+
+
+#questionNumber{
+    color: rgb(214, 214, 214);
+}
+
+
+#solution {
+    margin-top: 10px;
+    padding: 15px;
+    /* background-color: #e9f7ff; */
+    background-color: #5a5a7a23;
+    backdrop-filter: blur(5px);
+    border-left: 5px solid #007BFF;
+    border-radius: 5px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    /* color: #333; */
+    color: #c7c7c7;
+    display: none;
+}
+
+
+/* hint field */
+
+
+#hint {
+    margin-block: 10px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark */
+    color: #00ffcc; /* Futuristic cyan */
+    font-size: 1rem;
+    font-style: italic;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.3); /* Soft glow */
+    transition: all 0.3s ease-in-out;
+    transform: translateY(10px);
+  }
+  
+  #hint.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Optional: Add a subtle glowing effect on hover */
+  #hint:hover {
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.5);
+  }

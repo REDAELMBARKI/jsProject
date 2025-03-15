@@ -4,14 +4,26 @@ import Exercises from '../components/Exercises';
 import { dataContext } from '../data/data'
 function ExercisePage() {
     const {data} = useContext(dataContext);
-    useEffect(()=>{console.log(data)},[])
+    
   return (
     <main className='flex '>
-       <aside id='exercisesAside' className='w-[20%] p-3 min-h-[100vh]'>
+       <aside id='exercisesAside' className='w-[20%] p-3 h-auto'>
          <SideMenu />
        </aside>
-       <section  id='exercisesMain' className='w-[80%] p-3 min-h-[100vh]'>
-         <Exercises />
+       <section  id='exercisesMain' className=' w-[80%] h-auto'>
+          <div id='exersices__Background' className=' border border-slate-200 my-3'>
+          
+           {
+            data.map(data => <Exercises
+                                         id={data.id}
+                                         exercise={data.exercise}
+                                         hint={data.hint}
+                                         solution={data.solution}
+            
+            /> )
+           }
+          
+          </div>
        </section>
     </main>
   )
