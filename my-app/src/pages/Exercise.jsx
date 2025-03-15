@@ -6,11 +6,11 @@ function ExercisePage() {
     const {data} = useContext(dataContext);
     useEffect(()=>{console.log(data)},[])
   return (
-    <main className='flex gap-2'>
-       <aside className='w-[20%] bg-slate-800 h-full'>
+    <main className='flex '>
+       <aside id='exercisesAside' className='w-[20%] p-3 min-h-[100vh]'>
          <SideMenu />
        </aside>
-       <section className='w-[80%] h-full'>
+       <section  id='exercisesMain' className='w-[80%] p-3 min-h-[100vh]'>
          <Exercises />
        </section>
     </main>

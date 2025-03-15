@@ -1,0 +1,11 @@
+#exercisesAside{
+    background-image: linear-gradient(60deg,rgba(0, 0, 0, 0.247),black,rgba(0, 0, 0, 0.185));
+    backdrop-filter: blur(10px);
+    background-attachment: fixed
+}
+
+#exercisesMain{
+    background-image: linear-gradient(60deg,rgba(0, 0, 0, 0.247),black,rgba(0, 0, 0, 0.185));
+    backdrop-filter: blur(10px);
+    background-attachment: fixed
+}
