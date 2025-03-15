@@ -10,6 +10,7 @@ function Exercises({id,exercise,hint,solution}) {
     setIsHintLoading(true)
     setTimeout(()=>{
       setIsHintLoading(false)
+      setIsSolution(false)
       setIsHint(!isHint)
     },300)
   }
@@ -19,6 +20,7 @@ function Exercises({id,exercise,hint,solution}) {
     setTimeout(()=>{
       setIsSolutionLoading(false)
       setIsSolution(!isSolution)
+      setIsHint(false)
     },300)
   }
   return (
@@ -42,7 +44,7 @@ function Exercises({id,exercise,hint,solution}) {
                 </div>
               }
           
-              <button className="btn block flex w-[150px]" onClick={handleSolution}>
+              <button className="btn block flex w-[150px] mt-3" onClick={handleSolution}>
                 {
                   isSolutionLoading ? <span className="loading loading-spinner"></span> :  "solution"
                 }
