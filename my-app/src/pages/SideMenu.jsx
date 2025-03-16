@@ -1,16 +1,15 @@
 import React,{useContext, useEffect,useState} from 'react'
 import { jsMapData } from '../data/jsMap'
-
+import { ChevronDown ,CornerDownRight } from 'lucide-react';
 function SideMenu() {
 
   const {jsMap} = useContext(jsMapData)
-  const hadleListDisplay = ()=>[
 
-  ]
 
 
   return (
     <div id='main_sideMenu' className='overflow-hidden'>
+      <h1  className='text-start py-4'>Get started</h1>
        <SideBarOuterItem />
     </div>
   )
@@ -18,17 +17,26 @@ function SideMenu() {
 
 
 function SideBarOuterItem(){
+  const [isListOpen,setIsListOpen] = useState(true)
+  const hadleListDisplay = ()=>[
+  setIsListOpen(!isListOpen)
+  ]
   return (
     <>
-     <p>
-          <button class="" onClick={hadleListDisplay} >category </button>
-          <ul class="collapse">
-              <li class="">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              </li>
+     <div>
+          <button className="listBtn_control block flex gap-2 items-end w-full text-start pl-3" onClick={hadleListDisplay} >
+           <span className=''> category </span>
+           <ChevronDown size={24}  />
+          </button>
+          <ul id='collapsedList' className={!isListOpen ? "collapsedList" : ''}>
+               <li id='list_item' className="">
+              
+                   test 1
+                </li>
+                
           </ul>
       
-      </p>
+      </div>
      
     </>
   )

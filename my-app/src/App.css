@@ -43,12 +43,24 @@
   background-attachment: fixed;
   border-radius: 20px ;
   border: 1px solid var(--glassBorder);
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
   min-height: 100vh;
   position: sticky;
   top: 60px;
 }
-
+.listBtn_control{
+  padding-block: 10px;
+  border-top: 1px solid var(--glassBorder);
+  border-bottom: 1px solid var(--glassBorder);
+  /* border-left: 4px solid #0250a3; */
+  transition: 5s ;
+  &:hover{
+  background-image: linear-gradient(60deg,#3b3b3b7a,rgba(20, 24, 26, 0.514),rgba(0, 0, 0, 0));
+  cursor: pointer;
+ }
+}
+.active{
+}
 #spider_chart{
   opacity: .2;
   min-width: 70%;
@@ -57,8 +69,32 @@
   /* transform: translateX(-50%); */
 }
 
+/* collapsd list */
+.collapsedList{
+  display: none;
+  
+}
+#list_item{
+  padding: 10px;
+  background-color: rgba(63, 63, 63, 0.233);
+  cursor: pointer;
+}
 
+#collapsedList{
+  transform: translateY(-20px) ;
+  opacity: 0;
+  padding: 10px;
+  padding-left: 10px;
+  text-wrap: wrap;
+  animation: textFade .5s linear forwards;
+}
 
+@keyframes textFade {
+  to{
+    transform: translateY(0px) ;
+     opacity: 1;
+  }
+}
 .btn_control{
     background-color: transparent;
     background-image: linear-gradient(60deg,rgba(0, 0, 0, 0),rgba(7, 7, 7, 0.027));
@@ -166,3 +202,6 @@ h1 {
   }
 
  
+
+
+  
