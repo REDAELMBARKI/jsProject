@@ -7,11 +7,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Navbar from './pages/Navbar';
+import UnderNMenu from './components/UnderNMenu';
 function App() {
   
   return (
     <>
         <Navbar />
+        <UnderNMenu  />
         <Routes>
            <Route path="/" element={<Home />} />
            <Route path="/about" element={<About />} />

@@ -59,7 +59,7 @@ function Exercises({id,exercise,hint,solution}) {
              </button>
               {
                 isSolution &&
-                <pre  className='mt-40'>
+                <pre  className='mt-40 '>
                   <code className='language-javascript'>
                      {solution}
                   </code>
