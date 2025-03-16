@@ -8,6 +8,8 @@ function ExercisePage() {
   return (
     <main  className='flex relative'>
       <div id='mainExercisePage__gradient'></div>
+       <img id='spider_chart' src="/Decagon.png"  />
+
        <aside id='exercisesAside' className='w-[20%] p-3 h-auto'>
          <SideMenu />
        </aside>
