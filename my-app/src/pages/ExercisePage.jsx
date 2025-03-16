@@ -6,7 +6,8 @@ function ExercisePage() {
     const {data} = useContext(dataContext);
     
   return (
-    <main className='flex '>
+    <main  className='flex relative'>
+      <div id='mainExercisePage__gradient'></div>
        <aside id='exercisesAside' className='w-[20%] p-3 h-auto'>
          <SideMenu />
        </aside>
