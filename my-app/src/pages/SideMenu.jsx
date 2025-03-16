@@ -10,13 +10,17 @@ function SideMenu() {
   return (
     <div id='main_sideMenu' className='overflow-hidden'>
       <h1  className='text-start py-4'>Get started</h1>
-       <SideBarOuterItem />
+      {
+        jsMap.map((map, index) => {
+          return <SideBarOuterItem key={index} category={map.category} />;
+        })
+      }
     </div>
   )
 }
 
 
-function SideBarOuterItem(){
+function SideBarOuterItem({category}){
   const [isListOpen,setIsListOpen] = useState(true)
   const hadleListDisplay = ()=>[
   setIsListOpen(!isListOpen)
@@ -25,7 +29,7 @@ function SideBarOuterItem(){
     <>
      <div>
           <button className="listBtn_control block flex gap-2 items-end w-full text-start pl-3" onClick={hadleListDisplay} >
-           <span className=''> category </span>
+           <span className=''>{category}</span>
            <ChevronDown size={24}  />
           </button>
           <ul id='collapsedList' className={!isListOpen ? "collapsedList" : ''}>

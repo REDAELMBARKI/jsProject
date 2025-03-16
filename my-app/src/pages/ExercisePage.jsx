@@ -10,11 +10,11 @@ function ExercisePage() {
       <div id='mainExercisePage__gradient'></div>
        <img id='spider_chart' src="/Decagon.png"  />
 
-       <aside id='exercisesAside' className='w-[20%] p-3 h-auto'>
+       <aside id='exercisesAside' className='w-[20%] h-auto'>
          <SideMenu />
        </aside>
        <section  id='exercisesMain' className=' w-[80%] h-auto'>
-          <div id='exersices__Background' className=' border border-slate-200 my-3'>
+          <div id='exersices__Background' className=' border border-slate-200  '>
           
            {
             data.map(data => <Exercises
