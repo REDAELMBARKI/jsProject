@@ -25,7 +25,7 @@ function SideBarOuterItem({category,concepts,keym}){
   const [isListOpen,setIsListOpen] = useState(false)
   const [filteredData,setFilteredData] = useState(null)
   const {data} = useContext(dataContext)
-  
+
   const hadleListDisplay = ()=>{
     setIsListOpen(!isListOpen)
   }
