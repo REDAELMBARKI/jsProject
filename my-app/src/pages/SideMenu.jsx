@@ -12,7 +12,7 @@ function SideMenu() {
       <h1  className='text-start py-4'>Get started</h1>
       {
         jsMap.map((map,index) => {
-          return <SideBarOuterItem key={index} category={map.category}  concepts={map.concepts} />;
+          return <SideBarOuterItem key={index} ind={index} category={map.category}  concepts={map.concepts} />;
         })
       }
     </div>
@@ -43,7 +43,7 @@ function SideBarOuterItem({category,concepts}){
                 {
                      concepts.map((con,index) => (
                         <Link to={`/exercises/${con}`} >
-                         <li onClick={()=> handleDataFilter() } key={index}   id='list_item' className="">
+                         <li onClick={()=> handleDataFilter(con) }  key={index}   id='list_item' className="">
                           {con}
                          </li>
                          </Link>
@@ -51,7 +51,12 @@ function SideBarOuterItem({category,concepts}){
                       
                      )
                       
+                     
+                    
+                   
+                   
                 }
+                
                 
           </ul>
       

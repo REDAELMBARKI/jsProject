@@ -9,16 +9,15 @@ function ExercisePage() {
     const {page} = useParams()
     const {data} = useContext(FilteredData);
     const [dataForPage,setDataForPage]  = useState(null)
-   
+   console.log(dataForPage)
    useEffect(()=>{
     function Pagenate(page=1){
-      for(let i = (page - 1) ; i < page ;i++){
+      for(let i = (page - 1) ; i < 1 ;i++){
           setDataForPage(data[i])
       }
     }
     Pagenate()
-   },[])
-    
+   },[data])
   return (
     <main  className='flex relative'>
       <div id='mainExercisePage__gradient'></div>
@@ -30,22 +29,29 @@ function ExercisePage() {
        <section  id='exercisesMain' className=' w-[80%] h-auto'>
           <div id='exersices__Background' className=' border border-slate-200  '>
           
-           {
-            Array.isArray(dataForPage)? dataForPage.map((data,index) => <Exercises  key={index}
-                                         id={data.id}
-                                         exercise={data.exercise}
-                                         hint={data.hint}
-                                         solution={data.solution}
-            
-            /> )
-             :console.log(dataForPage)
-          }
+           {    dataForPage &&
+            <>
+              <Exercises  key={dataForPage?.id}
+                                         id={dataForPage?.id}
+                                         exercise={dataForPage?.exercise}
+                                         hint={dataForPage?.hint}
+                                         solution={dataForPage?.solution} />
+              <div className='flex justify-between mb-4'>
+                    
+                      <button className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
+                        {/* <ChevronLeft /> */}
+                        <p className=''>Exersice</p>
+                      </button>
+                      
+                      <button className="join-item btn_prevNext w-[200px] py-4 ">next</button>
+                  
+              </div>
+            </>
+           }
           
-          </div>
-          <div className='flex justify-center'>
-          <Pagination />
-          </div>
            
+          </div>
+         
        </section>
     </main>
   )
