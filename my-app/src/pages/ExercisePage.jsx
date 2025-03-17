@@ -1,16 +1,14 @@
 import React , {useState,useContext,useEffect} from 'react'
 import SideMenu from './SideMenu'
 import Exercises from '../components/Exercises';
-import { FilteredData } from '../data/filterBasedData';
+
 import {useParams} from 'react-router-dom'
-import { Pagenate } from '../functions/pagenate';
 import { PagenationContext } from '../reducers/PaginationReducer';
 // import { Pagenate } from '../functions/PaginationData';
 function ExercisePage() {
     const {page} = useParams()
-    const {data} = useContext(FilteredData);
    
-    const {dispatch} = useContext(PagenationContext)
+    const {dispatch,dataForPage} = useContext(PagenationContext)
   //  useEffect(()=>{
   //   Pagenate(pageIndex,setDataForPage,data)
   //  },[data])
@@ -34,12 +32,12 @@ function ExercisePage() {
                                          solution={dataForPage?.solution} />
               <div className='flex justify-between mb-4'>
                     
-                      <button  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
+                      <button onClick={()=> dispatch({action :'prev'})}  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
                         {/* <ChevronLeft /> */}
                         <p className=''>Exersice</p>
                       </button>
                       
-                      <button onClick={()=> dispatch()}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
+                      <button onClick={()=> dispatch({action :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
                   
               </div>
             </>
