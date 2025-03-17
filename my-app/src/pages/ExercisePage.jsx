@@ -3,11 +3,22 @@ import SideMenu from './SideMenu'
 import Exercises from '../components/Exercises';
 import { FilteredData } from '../data/filterBasedData';
 import {useParams} from 'react-router-dom'
-
+import Pagination from '../components/Pagination';
+// import { Pagenate } from '../functions/PaginationData';
 function ExercisePage() {
     const {page} = useParams()
     const {data} = useContext(FilteredData);
-    console.log(page)
+    const [dataForPage,setDataForPage]  = useState(null)
+   
+   useEffect(()=>{
+    function Pagenate(page=1){
+      for(let i = (page - 1) ; i < page ;i++){
+          setDataForPage(data[i])
+      }
+    }
+    Pagenate()
+   },[])
+    
   return (
     <main  className='flex relative'>
       <div id='mainExercisePage__gradient'></div>
@@ -20,16 +31,21 @@ function ExercisePage() {
           <div id='exersices__Background' className=' border border-slate-200  '>
           
            {
-            data.map((data,index) => <Exercises  key={index}
+            Array.isArray(dataForPage)? dataForPage.map((data,index) => <Exercises  key={index}
                                          id={data.id}
                                          exercise={data.exercise}
                                          hint={data.hint}
                                          solution={data.solution}
             
             /> )
-           }
+             :console.log(dataForPage)
+          }
           
           </div>
+          <div className='flex justify-center'>
+          <Pagination />
+          </div>
+           
        </section>
     </main>
   )

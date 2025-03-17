@@ -239,9 +239,10 @@ const dataArray = [
     data:[]
   }
 
+  
 function reducer(state,action){
   const datawanted = dataArray.filter(data => data.concept.toLowerCase() === action.payload.toLowerCase()) 
-  return{
+   return{
        data:datawanted
     }
 
