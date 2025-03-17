@@ -19,9 +19,15 @@ const jsMap = [
     { category : "Math & Numbers", concepts: ["Math.random()", "Math.floor()", "Math.ceil()", "Math.round()", "parseInt()", "parseFloat()", "Number.isNaN()"] }
   ]
   
-export const jsMapData  = createContext({jsMap})
+export const JsMapData  = createContext()
 
-
+export function JsMapDataProvider({children}){
+  return(
+    <JsMapData.Provider value={{jsMap}}>
+      {children}
+    </JsMapData.Provider>
+  )
+}
 
 // json format
 

@@ -235,19 +235,24 @@ const dataArray = [
     }
   ];
   
-    
-
+  let initState ={
+    data:[]
+  }
 
 function reducer(state,action){
+  const datawanted = dataArray.filter(data => data.concept.toLowerCase() === action.payload.toLowerCase()) 
+  return{
+       data:datawanted
+    }
 
-}
+  }
 export const FilteredData = createContext(null)
 
 export const FilteredDataProvider = ({children}) => {
-   const [state,dispatch] = useReducer(reducer,dataArray)
+   const [state,dispatch] = useReducer(reducer,initState)
 
    return(
-    <FilteredData.Provider value={{dispatch,data:state}}>
+    <FilteredData.Provider value={{dispatch,data:state.data}}>
          {children}
     </FilteredData.Provider>
    )

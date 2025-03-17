@@ -1,10 +1,13 @@
 import React , {useState,useContext,useEffect} from 'react'
 import SideMenu from './SideMenu'
 import Exercises from '../components/Exercises';
-import { dataContext } from '../data/data'
+import { FilteredData } from '../data/filterBasedData';
+import {useParams} from 'react-router-dom'
+
 function ExercisePage() {
-    const {data} = useContext(dataContext);
-    
+    const {page} = useParams()
+    const {data} = useContext(FilteredData);
+    console.log(page)
   return (
     <main  className='flex relative'>
       <div id='mainExercisePage__gradient'></div>
@@ -17,7 +20,7 @@ function ExercisePage() {
           <div id='exersices__Background' className=' border border-slate-200  '>
           
            {
-            data.map(data => <Exercises
+            data.map((data,index) => <Exercises  key={index}
                                          id={data.id}
                                          exercise={data.exercise}
                                          hint={data.hint}
