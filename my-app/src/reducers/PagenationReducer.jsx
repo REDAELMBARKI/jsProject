@@ -2,9 +2,8 @@ import React,{useReducer,createContext,useContext} from "react";
 import { FilteredData } from "../data/filterBasedData";
 
 
-
 export const  Pagenate = (page=1,data)=> {
-   return data[page - 1] || null;
+   return data[page - 1];
 }
 
 
@@ -17,30 +16,34 @@ const initState = (data) => ({
 const reducer = (state,action) =>{
 switch(action.type){
    case 'prev' :
-      return{  
       
-         pageIndex :  state.pageIndex + 1,
-         dataForPage : Pagenate(pageIndex,state.data)
+      return{  
+         ...state,
+         pageIndex :  state.pageIndex - 1,
+         dataForPage : Pagenate(state.pageIndex,state.data)
          
       }
    case 'next' :
       return{
-      
-         pageIndex :  state.pageIndex - 1 ,
-         dataForPage : Pagenate(pageIndex,state.data)
+         ...state,
+         pageIndex :  state.pageIndex + 1 ,
+         dataForPage : Pagenate(state.pageIndex,state.data)
          
       
      }
-   
+     default:
+      return state;
+
 }
 }
 
 export const PagenationContext = createContext()
 
-export const PaginationContextProvider = ({children})=>{
-      const {data} = useContext(FilteredData);
+export const PagenationContextProvider = ({children})=>{
+    const {data} = useContext(FilteredData);
+// console.log(FilteredData)
 
-    const [state,dispatch] = useReducer(reducer,initState(data))
+    const [state,dispatch] = useReducer(reducer,data,initState)
      return (
     <PagenationContext.Provider value={{dispatch,state}}>
        {children}

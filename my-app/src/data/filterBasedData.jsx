@@ -245,9 +245,8 @@ function reducer(state,action){
    return{
        data:datawanted
     }
-
   }
-export const FilteredData = createContext(null)
+export const FilteredData = createContext()
 
 export const FilteredDataProvider = ({children}) => {
    const [state,dispatch] = useReducer(reducer,initState)

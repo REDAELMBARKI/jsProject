@@ -1,17 +1,13 @@
 import React , {useState,useContext,useEffect} from 'react'
 import SideMenu from './SideMenu'
 import Exercises from '../components/Exercises';
-
 import {useParams} from 'react-router-dom'
-import { PagenationContext } from '../reducers/PaginationReducer';
+import { PagenationContext } from '../reducers/PagenationReducer';
 // import { Pagenate } from '../functions/PaginationData';
 function ExercisePage() {
     const {page} = useParams()
+    const {dispatch,state} = useContext(PagenationContext)
    
-    const {dispatch,dataForPage} = useContext(PagenationContext)
-  //  useEffect(()=>{
-  //   Pagenate(pageIndex,setDataForPage,data)
-  //  },[data])
   return (
     <main  className='flex relative'>
       <div id='mainExercisePage__gradient'></div>
@@ -23,7 +19,7 @@ function ExercisePage() {
        <section  id='exercisesMain' className=' w-[80%] h-auto'>
           <div id='exersices__Background' className=' border border-slate-200  '>
           
-           {    dataForPage &&
+           {    state.dataForPage &&
             <>
               <Exercises  key={dataForPage?.id}
                                          id={dataForPage?.id}
