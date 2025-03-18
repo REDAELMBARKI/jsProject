@@ -113,7 +113,9 @@
   cursor: pointer;
 }
 .btn_prevNext:disabled{
-  background-color: red;
+  background-color: rgba(31, 31, 31, 0.479);
+  color: #444444;
+  cursor:not-allowed;
 }
 
 

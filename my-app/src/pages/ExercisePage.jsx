@@ -88,10 +88,25 @@ function ExercisePage() {
                     
                       <button  disabled={DataState.pageIndex === 1}  onClick={()=> dispatch({type :'prev'})}  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
                         {/* <ChevronLeft /> */}
-                        <p className=''>Exersice</p>
+                        prev
+                        {
+                          DataState.dataForPage?.id > 1 ?
+                          <p className='text-xs text-light text-yellow-600'>Exersice {DataState.dataForPage?.id - 1 }</p> :
+                          <></>
+                        }
+                       
+                       
                       </button>
                       
-                      <button  disabled={DataState.pageIndex === data.length} onClick={()=> dispatch({type :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
+                      <button  disabled={DataState.pageIndex === data.length} onClick={()=> dispatch({type :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">
+                        next
+                        {
+                          DataState.dataForPage?.id < data.length ?
+                          <p className='text-xs text-light text-yellow-600'>Exersice {DataState.dataForPage?.id + 1 }</p> :
+                          <></>
+                        }
+                       
+                        </button>
                   
               </div>
             </>
