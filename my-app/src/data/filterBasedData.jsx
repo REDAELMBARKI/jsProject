@@ -59,7 +59,7 @@ const dataArray = [
   }`
     },
     {
-      id: 6,
+      id: 1,
       category: "Control Flow",
       concept: "If-Else",
       exercise: "Find the largest number in an array.",
@@ -69,7 +69,7 @@ const dataArray = [
   }`
     },
     {
-      id: 7,
+      id: 2,
       category: "Control Flow",
       concept: "If-Else",
       exercise: "Check if a string is a palindrome.",
@@ -80,7 +80,7 @@ const dataArray = [
   }`
     },
     {
-      id: 8,
+      id: 3,
       category: "Control Flow",
       concept: "If-Else",
       exercise: "Determine the grade based on a score.",
@@ -94,7 +94,7 @@ const dataArray = [
   }`
     },
     {
-      id: 9,
+      id: 4,
       category: "Control Flow",
       concept: "If-Else",
       exercise: "Check if a year is a leap year.",
@@ -107,7 +107,7 @@ const dataArray = [
   }`
     },
     {
-      id: 10,
+      id: 5,
       category: "Control Flow",
       concept: "If-Else",
       exercise: "Determine the season based on a month number.",
@@ -120,7 +120,7 @@ const dataArray = [
   }`
     },
     {
-      id: 11,
+      id: 1,
       category: "Functions",
       concept: "Function Declaration",
       exercise: "Convert the first letter of a string to uppercase.",
@@ -130,7 +130,7 @@ const dataArray = [
   }`
     },
     {
-      id: 12,
+      id: 2,
       category: "Functions",
       concept: "Function Declaration",
       exercise: "Remove duplicates from an array.",
@@ -140,7 +140,7 @@ const dataArray = [
   }`
     },
     {
-      id: 13,
+      id: 3,
       category: "Functions",
       concept: "Function Declaration",
       exercise: "Find the sum of all numbers in an array.",
@@ -150,7 +150,7 @@ const dataArray = [
   }`
     },
     {
-      id: 14,
+      id: 4,
       category: "Functions",
       concept: "Function Declaration",
       exercise: "Check if a string contains another string.",
@@ -160,7 +160,7 @@ const dataArray = [
   }`
     },
     {
-      id: 15,
+      id: 5,
       category: "Functions",
       concept: "Function Declaration",
       exercise: "Convert a string to an array of words.",
@@ -170,7 +170,7 @@ const dataArray = [
   }`
     },
     {
-      id: 16,
+      id: 1,
       category: "Arrays",
       concept: "Array Methods",
       exercise: "Find the longest word in a sentence.",
@@ -181,7 +181,7 @@ const dataArray = [
   }`
     },
     {
-      id: 17,
+      id: 2,
       category: "Arrays",
       concept: "Array Methods",
       exercise: "Sort an array of numbers in ascending order.",
@@ -191,7 +191,7 @@ const dataArray = [
   }`
     },
     {
-      id: 18,
+      id: 3,
       category: "Arrays",
       concept: "Array Methods",
       exercise: "Find the index of a number in an array.",
@@ -201,7 +201,7 @@ const dataArray = [
   }`
     },
     {
-      id: 19,
+      id: 4,
       category: "Objects & Classes",
       concept: "Objects",
       exercise: "Create an object representing a book with title, author, and year.",
@@ -213,7 +213,7 @@ const dataArray = [
   };`
     },
     {
-      id: 20,
+      id: 5,
       category: "Objects & Classes",
       concept: "Classes",
       exercise: "Create a class for a Rectangle with methods for area and perimeter.",

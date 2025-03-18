@@ -11,37 +11,48 @@ function ExercisePage() {
     const {data} = useContext(FilteredData)
     // const [dataForPage,setDataForPage] = useState(null)
     // const [pageIndex,setPageIndex] = useState(1)
-  // console.log(data)
+  console.log(data)
 
-    function Pagenate (page=1,data){
-           return data ? data[page - 1] : null ;
-      
-    }
+  function Pagenate(page = 1, data) {
+    if (!data || data.length === 0) return null;
+    return data[page - 1] || null;
+}
   
 
     const DATA_FOR_PAGE_INITIAL_STATE = {
-      dataForPage:data ? Pagenate(1, data) : null,
+      dataForPage: Pagenate(1, data ?? []),
       pageIndex: 1,
    };
 
+   useEffect(() => {
+    if (data && data.length > 0) {
+        dispatch({ type: 'update', payload: Pagenate(1, data) });
+    }
+}, [data]);
+
    const DataForPagereducer = (state,action) =>{
     switch(action.type){
-    
+      case 'update': // New case to update data when it loads
+      return {
+          ...state,
+          dataForPage: action.payload,
+          pageIndex: 1,
+      }
        case 'prev' :
-          return{  
-             ...state,
-             pageIndex :  state.pageIndex - 1,
-             dataForPage : Pagenate(state.pageIndex,data)
-             
-          }
+        const newPageIndexP = state.pageIndex - 1
+        return {  
+            ...state,
+            pageIndex: newPageIndexP,
+            dataForPage: Pagenate(newPageIndexP, data)
+        }
        case 'next' :
-          return{
-             ...state,
-             pageIndex :  state.pageIndex + 1 ,
-             dataForPage : Pagenate(state.pageIndex,data)
-             
-          
-         }
+            const newPageIndexN = state.pageIndex + 1
+            return {  
+                ...state,
+                pageIndex: newPageIndexN,
+                dataForPage: Pagenate(newPageIndexN, data)
+            }
+         
          default:
           return state;
     
@@ -73,12 +84,12 @@ function ExercisePage() {
                                          solution={DataState.dataForPage?.solution} />
               <div className='flex justify-between mb-4'>
                     
-                      <button onClick={()=> dispatch({type :'prev'})}  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
+                      <button disabled={DataState.pageIndex === 1}  onClick={()=> dispatch({type :'prev'})}  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
                         {/* <ChevronLeft /> */}
                         <p className=''>Exersice</p>
                       </button>
                       
-                      <button onClick={()=> dispatch({type :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
+                      <button disabled={DataState.pageIndex === data.length} onClick={()=> dispatch({type :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
                   
               </div>
             </>
