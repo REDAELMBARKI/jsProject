@@ -1,10 +1,11 @@
 import React,{useReducer,createContext,useContext} from "react";
 import { FilteredData } from "../data/filterBasedData";
+import { DataMiddleWare } from "../functions/DataMiddleWare";
 
 
-export const  Pagenate = (page=1,data)=> {
-   return data[page - 1];
-}
+let data = DataMiddleWare();
+
+
 
 
 const initState = (data) => ({
@@ -39,16 +40,14 @@ switch(action.type){
 
 export const PagenationContext = createContext()
 
-export const PagenationContextProvider = ({children})=>{
-    const {data} = useContext(FilteredData);
-// console.log(FilteredData)
+// export const PagenationContextProvider = ({children})=>{
 
-    const [state,dispatch] = useReducer(reducer,data,initState)
-     return (
-    <PagenationContext.Provider value={{dispatch,state}}>
-       {children}
-     </PagenationContext.Provider>
-     )
-}
+//     const [state,dispatch] = useReducer(reducer,data,initState)
+//      return (
+//     <PagenationContext.Provider value={{dispatch,state}}>
+//        {children}
+//      </PagenationContext.Provider>
+//      )
+// }
   
     
