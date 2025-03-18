@@ -11,34 +11,34 @@ function ExercisePage() {
     const {data} = useContext(FilteredData)
     // const [dataForPage,setDataForPage] = useState(null)
     // const [pageIndex,setPageIndex] = useState(1)
+  // console.log(data)
 
-
-    const  Pagenate = (page=1)=> {
-       return data[page - 1];
+    function Pagenate (page=1,data){
+           return data ? data[page - 1] : null ;
+      
     }
-    
-    useEffect(()=>{
-      Pagenate()
-    },[data])
+  
+
     const DATA_FOR_PAGE_INITIAL_STATE = {
-      dataForPage: Pagenate(2),
+      dataForPage:data ? Pagenate(1, data) : null,
       pageIndex: 1,
    };
+
    const DataForPagereducer = (state,action) =>{
     switch(action.type){
+    
        case 'prev' :
-          
           return{  
              ...state,
              pageIndex :  state.pageIndex - 1,
-             dataForPage : Pagenate(state.pageIndex)
+             dataForPage : Pagenate(state.pageIndex,data)
              
           }
        case 'next' :
           return{
              ...state,
              pageIndex :  state.pageIndex + 1 ,
-             dataForPage : Pagenate(state.pageIndex)
+             dataForPage : Pagenate(state.pageIndex,data)
              
           
          }
@@ -48,11 +48,9 @@ function ExercisePage() {
     }
     }
     
-    
-      
-        
+
     const [DataState,dispatch] = useReducer(DataForPagereducer,DATA_FOR_PAGE_INITIAL_STATE)
-    
+    console.log(DataState)
    
     
   return (
@@ -68,19 +66,19 @@ function ExercisePage() {
           
            {    DataState.dataForPage &&
             <>
-              <Exercises  key={dataForPage?.id}
+              <Exercises  key={DataState.dataForPage?.id}
                                          id={DataState.dataForPage?.id}
                                          exercise={DataState.dataForPage?.exercise}
                                          hint={DataState.dataForPage?.hint}
                                          solution={DataState.dataForPage?.solution} />
               <div className='flex justify-between mb-4'>
                     
-                      <button onClick={()=> dispatch({action :'prev'})}  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
+                      <button onClick={()=> dispatch({type :'prev'})}  className=" py-4 flex-col btn_prevNext w-[200px] gap-0  ">
                         {/* <ChevronLeft /> */}
                         <p className=''>Exersice</p>
                       </button>
                       
-                      <button onClick={()=> dispatch({action :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
+                      <button onClick={()=> dispatch({type :'next'})}  className="join-item btn_prevNext w-[200px] py-4 ">next</button>
                   
               </div>
             </>
